@@ -1110,22 +1110,13 @@
             Perfeito para quem já utiliza o Antigravity no computador e quer total privacidade executando comandos diretamente na sua máquina local.
           </p>
 
-          <div class="os-tabs" style="display: flex; gap: 8px; margin-bottom: 8px;">
-            <button id="tabLinux" type="button" onclick="switchOsTab('linux')" style="padding: 6px 14px; font-size: 12px; font-weight: 600; border-radius: 8px; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; transition: all 0.2s;">🐧 Linux / 🍎 Mac</button>
-            <button id="tabWin" type="button" onclick="switchOsTab('win')" style="padding: 6px 14px; font-size: 12px; font-weight: 600; border-radius: 8px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">🪟 Windows (PowerShell)</button>
+          <div class="os-tabs" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
+            <button id="tabWin" type="button" onclick="switchOsTab('win')" style="padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; transition: all 0.2s;">🪟 Windows</button>
+            <button id="tabLinux" type="button" onclick="switchOsTab('linux')" style="padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">🐧 Linux</button>
+            <button id="tabMac" type="button" onclick="switchOsTab('mac')" style="padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">🍎 macOS</button>
           </div>
 
-          <div class="terminal-box" id="termBoxLinux">
-            <div class="terminal-code">
-              <span class="prompt">$ </span>curl -sSL https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.sh | bash
-            </div>
-            <button class="btn-copy" onclick="copyTerminal('curl -sSL https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.sh | bash', this)">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-              <span>Copiar</span>
-            </button>
-          </div>
-
-          <div class="terminal-box" id="termBoxWin" style="display: none;">
+          <div class="terminal-box" id="termBoxWin">
             <div class="terminal-code">
               <span class="prompt">PS&gt; </span>irm https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.ps1 | iex
             </div>
@@ -1135,11 +1126,21 @@
             </button>
           </div>
 
+          <div class="terminal-box" id="termBoxBash" style="display: none;">
+            <div class="terminal-code">
+              <span class="prompt">$ </span>curl -sSL https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.sh | bash
+            </div>
+            <button class="btn-copy" onclick="copyTerminal('curl -sSL https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.sh | bash', this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copiar</span>
+            </button>
+          </div>
+
           <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-            <a href="https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server.zip" class="btn-download" style="padding: 12px 20px; font-size: 13.5px; border-radius: 14px; flex: 1; justify-content: center; text-decoration: none; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);">
+            <a id="btnZipDownload" href="https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-windows.zip" class="btn-download" style="padding: 12px 20px; font-size: 13.5px; border-radius: 14px; flex: 1; justify-content: center; text-decoration: none; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-              <span>Baixar Servidor (.zip)</span>
-              <span class="btn-badge" style="background: rgba(255,255,255,0.25); font-size: 10.5px;">25 MB</span>
+              <span id="lblZipTitle">Baixar Servidor Windows (.zip)</span>
+              <span id="badgeZipSize" class="btn-badge" style="background: rgba(255,255,255,0.25); font-size: 10.5px;">17 MB</span>
             </a>
             <a href="https://github.com/WebuildSoft/antigravity-server" target="_blank" rel="noopener" class="btn-outline" style="padding: 12px 18px; font-size: 13px; border-radius: 14px; justify-content: center; text-decoration: none;">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -1397,22 +1398,51 @@
     }
 
     function switchOsTab(os) {
-      const isLinux = os === 'linux';
-      const termLinux = document.getElementById('termBoxLinux');
+      const termBash = document.getElementById('termBoxBash');
       const termWin = document.getElementById('termBoxWin');
-      const tabLinux = document.getElementById('tabLinux');
       const tabWin = document.getElementById('tabWin');
-      if (termLinux) termLinux.style.display = isLinux ? 'flex' : 'none';
-      if (termWin) termWin.style.display = isLinux ? 'none' : 'flex';
-      if (tabLinux) {
-        tabLinux.style.background = isLinux ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)';
-        tabLinux.style.color = isLinux ? '#38bdf8' : '#94a3b8';
-        tabLinux.style.borderColor = isLinux ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.1)';
-      }
-      if (tabWin) {
-        tabWin.style.background = !isLinux ? 'rgba(56, 189, 248, 0.2)' : 'rgba(255, 255, 255, 0.05)';
-        tabWin.style.color = !isLinux ? '#38bdf8' : '#94a3b8';
-        tabWin.style.borderColor = !isLinux ? 'rgba(56, 189, 248, 0.4)' : 'rgba(255, 255, 255, 0.1)';
+      const tabLinux = document.getElementById('tabLinux');
+      const tabMac = document.getElementById('tabMac');
+      const btnZip = document.getElementById('btnZipDownload');
+      const lblZip = document.getElementById('lblZipTitle');
+      const badgeZip = document.getElementById('badgeZipSize');
+
+      const isWin = os === 'win';
+      const isLinux = os === 'linux';
+      const isMac = os === 'mac';
+
+      if (termWin) termWin.style.display = isWin ? 'flex' : 'none';
+      if (termBash) termBash.style.display = !isWin ? 'flex' : 'none';
+
+      const activeBg = 'rgba(56, 189, 248, 0.2)';
+      const activeColor = '#38bdf8';
+      const activeBorder = 'rgba(56, 189, 248, 0.4)';
+      const inactiveBg = 'rgba(255, 255, 255, 0.05)';
+      const inactiveColor = '#94a3b8';
+      const inactiveBorder = 'rgba(255, 255, 255, 0.1)';
+
+      [tabWin, tabLinux, tabMac].forEach(t => {
+        if (!t) return;
+        t.style.background = inactiveBg;
+        t.style.color = inactiveColor;
+        t.style.borderColor = inactiveBorder;
+      });
+
+      if (isWin && tabWin) {
+        tabWin.style.background = activeBg; tabWin.style.color = activeColor; tabWin.style.borderColor = activeBorder;
+        if (btnZip) btnZip.href = 'https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-windows.zip';
+        if (lblZip) lblZip.textContent = 'Baixar Servidor Windows (.zip)';
+        if (badgeZip) badgeZip.textContent = '17 MB';
+      } else if (isLinux && tabLinux) {
+        tabLinux.style.background = activeBg; tabLinux.style.color = activeColor; tabLinux.style.borderColor = activeBorder;
+        if (btnZip) btnZip.href = 'https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-linux.zip';
+        if (lblZip) lblZip.textContent = 'Baixar Servidor Linux (.zip)';
+        if (badgeZip) badgeZip.textContent = '20 MB';
+      } else if (isMac && tabMac) {
+        tabMac.style.background = activeBg; tabMac.style.color = activeColor; tabMac.style.borderColor = activeBorder;
+        if (btnZip) btnZip.href = 'https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-macos.zip';
+        if (lblZip) lblZip.textContent = 'Baixar Servidor Mac (.zip)';
+        if (badgeZip) badgeZip.textContent = '13 MB';
       }
     }
 
