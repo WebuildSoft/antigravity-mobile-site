@@ -883,7 +883,7 @@
       </p>
 
       <div class="hero-actions">
-        <a id="heroDownloadBtn" href="https://github.com/WebuildSoft/antigravity-mobile-releases/releases/download/v1.4.0/AntigravityMobile-v1.4.0-build24.apk" class="btn-download" download="AntigravityMobile-v1.4.0-build24.apk" target="_blank" rel="noopener noreferrer">
+        <a id="heroDownloadBtn" href="/app.apk" class="btn-download" download="AntigravityMobile-v1.4.0-build24.apk">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
             <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.997-3.4582c.1122-.1944.0455-.4426-.1488-.5548-.1943-.1121-.4425-.0454-.5548.1489l-2.0243 3.5056c-1.528-.6968-3.238-1.0877-5.0504-1.0877s-3.5224.3909-5.0504 1.0877l-2.0243-3.5056c-.1123-.1943-.3605-.261-.5548-.1489-.1943.1122-.261.3604-.1488.5548l1.997 3.4582C2.6886 11.2386.992 14.6586.992 18.5714h22.016c0-3.9128-1.6966-7.3328-5.1275-9.25"/>
           </svg>
@@ -989,7 +989,7 @@
           </div>
 
           <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
-            <a id="btnZipDownload" href="https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-windows.zip" class="btn-download" style="padding: 12px 20px; font-size: 13.5px; border-radius: 14px; flex: 1; justify-content: center; text-decoration: none; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);">
+            <a id="btnZipDownload" href="/download/windows" class="btn-download" style="padding: 12px 20px; font-size: 13.5px; border-radius: 14px; flex: 1; justify-content: center; text-decoration: none; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.35);">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
               <span id="lblZipTitle">Baixar Servidor Windows (.zip)</span>
               <span id="badgeZipSize" class="btn-badge" style="background: rgba(255,255,255,0.25); font-size: 10.5px;">17 MB</span>
@@ -1370,17 +1370,17 @@
 
       if (isWin && tabWin) {
         tabWin.style.background = activeBg; tabWin.style.color = activeColor; tabWin.style.borderColor = activeBorder;
-        if (btnZip) btnZip.href = 'https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-windows.zip';
+        if (btnZip) btnZip.href = '/download/windows';
         if (lblZip) lblZip.textContent = 'Baixar Servidor Windows (.zip)';
         if (badgeZip) badgeZip.textContent = '17 MB';
       } else if (isLinux && tabLinux) {
         tabLinux.style.background = activeBg; tabLinux.style.color = activeColor; tabLinux.style.borderColor = activeBorder;
-        if (btnZip) btnZip.href = 'https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-linux.zip';
+        if (btnZip) btnZip.href = '/download/linux';
         if (lblZip) lblZip.textContent = 'Baixar Servidor Linux (.zip)';
         if (badgeZip) badgeZip.textContent = '20 MB';
       } else if (isMac && tabMac) {
         tabMac.style.background = activeBg; tabMac.style.color = activeColor; tabMac.style.borderColor = activeBorder;
-        if (btnZip) btnZip.href = 'https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server-macos.zip';
+        if (btnZip) btnZip.href = '/download/macos';
         if (lblZip) lblZip.textContent = 'Baixar Servidor Mac (.zip)';
         if (badgeZip) badgeZip.textContent = '13 MB';
       }
