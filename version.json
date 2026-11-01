@@ -1,7 +1,7 @@
 {
   "version": "1.4.0",
-  "build": 24,
-  "releasedAt": "2026-11-01T02:22:21Z",
-  "changelog": "Isolamento multi-usuario por UID, limpeza total no logout, autenticacao nas rotas HTTP e correcao do explorer de arquivos",
-  "downloadUrl": "/app.apk"
+  "build": 25,
+  "releasedAt": "2026-11-01T09:24:00Z",
+  "changelog": "Rolagem inteligente no chat e suporte universal de workspace",
+  "downloadUrl": "https://github.com/WebuildSoft/antigravity-mobile-releases/releases/download/v1.4.0/AntigravityMobile-v1.4.0-build25.apk"
 }
