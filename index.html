@@ -314,10 +314,10 @@
       color: var(--emerald);
     }
 
-    /* Device Mockup Preview */
+    /* Device Mockup Preview - Identical to Flutter Mobile App */
     .mockup-wrapper {
       margin: 50px auto 40px;
-      max-width: 420px;
+      max-width: 440px;
       position: relative;
     }
     .mockup-glow {
@@ -325,83 +325,130 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 380px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%);
-      filter: blur(50px);
+      width: 420px;
+      height: 540px;
+      background: radial-gradient(circle, rgba(99, 102, 241, 0.28) 0%, rgba(56, 189, 248, 0.16) 50%, transparent 70%);
+      filter: blur(55px);
       z-index: 0;
+      pointer-events: none;
     }
     .phone-frame {
       position: relative;
       z-index: 1;
       background: #0B111E;
-      border: 2px solid rgba(255, 255, 255, 0.12);
-      border-radius: 44px;
-      padding: 12px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+      border: 3px solid rgba(255, 255, 255, 0.14);
+      border-radius: 46px;
+      padding: 10px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(0, 0, 0, 0.9), inset 0 1px 2px rgba(255, 255, 255, 0.25);
     }
     .phone-screen {
-      background: #090D16;
-      border-radius: 34px;
+      background: #0F172A; /* Cyber Indigo background */
+      border-radius: 36px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      height: 590px;
+      box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
     }
 
-    /* Phone Internal UI */
+    /* Phone Status Bar */
     .phone-top-bar {
-      height: 28px;
-      padding: 0 16px;
+      height: 32px;
+      padding: 0 18px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 11px;
-      font-weight: 600;
+      font-size: 11.5px;
+      font-weight: 700;
       color: #94A3B8;
-      background: #090D16;
+      background: #0F172A;
+      user-select: none;
+      flex-shrink: 0;
     }
     .phone-island {
-      width: 70px;
-      height: 14px;
+      width: 78px;
+      height: 16px;
       background: #000;
-      border-radius: 10px;
+      border-radius: 12px;
       margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+    }
+    .phone-camera-dot {
+      width: 7px;
+      height: 7px;
+      background: #0d1b2a;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+    }
+    .phone-status-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10.5px;
+      color: #94A3B8;
     }
 
-    .phone-app-header {
-      padding: 12px 16px;
+    /* Flutter AppBar Replica */
+    .flutter-appbar {
+      height: 52px;
+      padding: 0 10px 0 14px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(15, 23, 42, 0.6);
+      background: #1E2638;
+      border-bottom: 1px solid #26334D;
+      flex-shrink: 0;
+      user-select: none;
     }
-    .phone-app-brand {
+    .flutter-appbar-left {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .phone-app-brand img {
-      width: 24px;
-      height: 24px;
-      border-radius: 6px;
+    .appbar-icon-btn {
+      background: none;
+      border: none;
+      color: #CBD5E1;
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
     }
-    .phone-app-name {
-      font-size: 13px;
-      font-weight: 700;
+    .appbar-icon-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
       color: #FFF;
     }
-    .phone-conn-badge {
+    .flutter-title-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .flutter-app-name {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+    }
+    .flutter-status-badge {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      background: rgba(16, 185, 129, 0.15);
+      gap: 4px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 0.8px solid rgba(16, 185, 129, 0.45);
       color: #34D399;
-      padding: 3px 8px;
-      border-radius: 12px;
-      font-size: 10.5px;
-      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 700;
     }
     .dot-pulse {
       width: 6px;
@@ -410,106 +457,339 @@
       border-radius: 50%;
       box-shadow: 0 0 8px #10B981;
     }
+    .flutter-appbar-actions {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
 
+    /* Chat Body */
     .phone-chat-body {
-      padding: 16px;
+      flex: 1;
+      padding: 14px 12px;
       display: flex;
       flex-direction: column;
       gap: 12px;
       font-size: 12px;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      background: #0F172A;
+    }
+    .phone-chat-body::-webkit-scrollbar {
+      width: 4px;
+    }
+    .phone-chat-body::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 2px;
     }
 
-    .bubble-user {
-      align-self: flex-end;
-      background: #0284C7;
-      color: #FFF;
+    /* Simulation Messages */
+    .sim-row-user {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      animation: simPopIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .sim-bubble-user {
+      background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+      color: #FFFFFF;
       padding: 10px 14px;
       border-radius: 16px 16px 4px 16px;
-      max-width: 85%;
-      line-height: 1.4;
+      max-width: 86%;
+      line-height: 1.42;
+      font-size: 12.5px;
       font-weight: 500;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.35);
+      position: relative;
+    }
+    .sim-bubble-meta {
+      font-size: 9px;
+      color: rgba(255, 255, 255, 0.75);
+      text-align: right;
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 3px;
     }
 
-    .bubble-agent {
-      align-self: flex-start;
-      background: rgba(30, 41, 59, 0.7);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #E2E8F0;
-      padding: 12px;
+    .sim-row-agent {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      width: 100%;
+      animation: simPopIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .sim-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #6366F1, #818CF8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+      margin-top: 2px;
+    }
+    .sim-bubble-agent {
+      background: #131B2A;
+      border: 1px solid #26334D;
       border-radius: 16px 16px 16px 4px;
-      max-width: 95%;
+      padding: 12px;
+      max-width: 90%;
       display: flex;
       flex-direction: column;
       gap: 8px;
+      color: #E2E8F0;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
     }
 
-    .agent-thinking {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(139, 92, 246, 0.15);
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      padding: 5px 10px;
-      border-radius: 8px;
-      font-size: 11px;
-      color: #C4B5FD;
-      font-weight: 600;
+    /* Thinking Card Replica */
+    .sim-thinking-card {
+      background: rgba(99, 102, 241, 0.1);
+      border: 0.9px solid rgba(99, 102, 241, 0.32);
+      border-radius: 10px;
+      overflow: hidden;
+      animation: simPopIn 0.3s ease;
     }
-
-    .agent-tool {
-      background: #050810;
-      border: 1px solid rgba(56, 189, 248, 0.2);
-      border-radius: 8px;
-      padding: 8px 10px;
-      font-family: var(--font-mono);
-      font-size: 10.5px;
-      color: #38BDF8;
-    }
-    .agent-tool-head {
+    .sim-thinking-header {
+      padding: 7px 10px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 4px;
+      user-select: none;
+    }
+    .sim-thinking-left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sim-thinking-icon-badge {
+      width: 20px;
+      height: 20px;
+      border-radius: 5px;
+      background: rgba(99, 102, 241, 0.22);
+      color: #818CF8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .sim-thinking-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.2px;
+    }
+    .sim-thinking-badge {
+      font-size: 9px;
+      font-weight: 600;
+      color: #818CF8;
+      background: rgba(99, 102, 241, 0.25);
+      padding: 1px 5px;
+      border-radius: 4px;
+    }
+    .sim-thinking-body {
+      padding: 7px 10px 8px;
+      font-size: 10.5px;
+      color: #CBD5E1;
+      line-height: 1.45;
+      border-top: 1px solid rgba(99, 102, 241, 0.15);
+      background: rgba(15, 23, 42, 0.4);
+      font-family: var(--font-mono);
+    }
+
+    /* Tool Card Replica */
+    .sim-tool-card {
+      background: #050810;
+      border: 1px solid rgba(251, 191, 36, 0.35);
+      border-radius: 8px;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      animation: simPopIn 0.3s ease;
+    }
+    .sim-tool-header {
+      background: rgba(251, 191, 36, 0.08);
+      padding: 6px 9px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+      color: #FBBF24;
+      font-weight: 600;
+    }
+    .sim-tool-left {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .sim-tool-cmd {
       color: #94A3B8;
       font-size: 10px;
     }
-    .agent-tool-result {
-      color: #34D399;
+    .sim-tool-body {
+      padding: 7px 9px;
+      color: #CBD5E1;
       font-size: 10px;
-      margin-top: 4px;
+      line-height: 1.45;
+    }
+    .sim-tool-success {
+      color: #34D399;
+      font-weight: 600;
+      margin-top: 3px;
     }
 
+    /* Agent Response Text */
+    .sim-agent-text {
+      font-size: 12px;
+      line-height: 1.48;
+      color: #F1F5F9;
+      animation: simPopIn 0.3s ease;
+    }
+    .sim-agent-footer {
+      font-size: 9.5px;
+      color: #64748B;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Quick Action Chips */
+    .sim-quick-chips {
+      padding: 6px 10px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      background: #0F172A;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      flex-shrink: 0;
+      scrollbar-width: none;
+    }
+    .sim-quick-chips::-webkit-scrollbar {
+      display: none;
+    }
+    .sim-chip {
+      background: #1E2638;
+      border: 1px solid #26334D;
+      color: #CBD5E1;
+      border-radius: 14px;
+      padding: 4px 10px;
+      font-size: 10.5px;
+      font-weight: 500;
+      white-space: nowrap;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .sim-chip:hover {
+      background: rgba(99, 102, 241, 0.2);
+      border-color: #6366F1;
+      color: #FFF;
+      transform: translateY(-1px);
+    }
+
+    /* Flutter Bottom Input Bar Replica */
     .phone-input-bar {
-      padding: 12px 14px;
-      background: rgba(15, 23, 42, 0.9);
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 10px 12px 14px;
+      background: #1E2638;
+      border-top: 1px solid #26334D;
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-shrink: 0;
     }
-    .phone-fake-input {
-      flex: 1;
-      height: 34px;
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 18px;
-      padding: 0 12px;
-      color: #64748B;
-      font-size: 11px;
+    .phone-camera-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: rgba(99, 102, 241, 0.18);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #818CF8;
       display: flex;
       align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: background 0.15s;
+    }
+    .phone-camera-btn:hover {
+      background: rgba(99, 102, 241, 0.3);
+    }
+    .phone-fake-input-wrapper {
+      flex: 1;
+      height: 38px;
+      background: #0F172A;
+      border: 1px solid #26334D;
+      border-radius: 19px;
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      color: #E2E8F0;
+      font-size: 12px;
+      overflow: hidden;
+      white-space: nowrap;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .phone-fake-input-wrapper.active-typing {
+      border-color: #6366F1;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.35);
+    }
+    .phone-fake-input-text {
+      color: #64748B;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .phone-fake-input-text.has-value {
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+    .sim-cursor {
+      display: inline-block;
+      width: 2px;
+      height: 13px;
+      background: #818CF8;
+      margin-left: 2px;
+      opacity: 0;
+      flex-shrink: 0;
+    }
+    .sim-cursor.blink {
+      animation: simBlink 0.8s infinite;
     }
     .phone-send-btn {
-      width: 32px;
-      height: 32px;
-      background: #0284C7;
+      width: 38px;
+      height: 38px;
+      background: linear-gradient(135deg, #6366F1 0%, #818CF8 100%);
+      border: none;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       color: #FFF;
-      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+      box-shadow: 0 3px 12px rgba(99, 102, 241, 0.45);
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .phone-send-btn.clicked {
+      transform: scale(0.88);
+      box-shadow: 0 1px 4px rgba(99, 102, 241, 0.6);
+    }
+
+    @keyframes simPopIn {
+      from {
+        opacity: 0;
+        transform: translateY(12px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes simBlink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
     }
 
     /* Section Headers */
@@ -1111,66 +1391,78 @@
         </div>
       </div>
 
-      <!-- Interactive Phone Mockup Preview -->
+      <!-- Interactive Phone Mockup Preview (Exact Replica of Flutter Mobile App) -->
       <div class="mockup-wrapper">
         <div class="mockup-glow"></div>
         <div class="phone-frame">
           <div class="phone-screen">
-            <!-- Notch / Status -->
+            <!-- Notch / Status Bar -->
             <div class="phone-top-bar">
-              <span>09:41</span>
-              <div class="phone-island"></div>
-              <span>5G 100%</span>
-            </div>
-
-            <!-- Top Header -->
-            <div class="phone-app-header">
-              <div class="phone-app-brand">
-                <img src="icons/Icon-192.png" alt="Icon">
-                <span class="phone-app-name">Antigravity 2.0</span>
+              <span class="phone-time" id="simPhoneTime">09:41</span>
+              <div class="phone-island">
+                <div class="phone-camera-dot"></div>
               </div>
-              <div class="phone-conn-badge">
-                <span class="dot-pulse"></span>
-                <span>Conectado</span>
+              <div class="phone-status-icons">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+                <span>5G</span>
+                <svg width="15" height="11" viewBox="0 0 24 14" fill="currentColor"><rect x="1" y="1" width="19" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"></rect><rect x="3" y="3" width="13" height="8" rx="1"></rect><path d="M22 5v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path></svg>
               </div>
             </div>
 
-            <!-- Chat Content Simulation -->
-            <div class="phone-chat-body">
-              <div class="bubble-user">
-                Implemente a autenticação JWT e execute os testes do backend.
-              </div>
-
-              <div class="bubble-agent">
-                <div class="agent-thinking">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path></svg>
-                  <span>Pensando (2.4s): Analisando tokens e rotas protegidas...</span>
-                </div>
-
-                <div class="agent-tool">
-                  <div class="agent-tool-head">
-                    <span style="display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: #FBBF24;">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                      run_command
-                    </span>
-                    <span>go test ./...</span>
+            <!-- Flutter Mobile AppBar Replica -->
+            <div class="flutter-appbar">
+              <div class="flutter-appbar-left">
+                <button class="appbar-icon-btn" title="Histórico de Conversas" aria-label="Menu de Conversas">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <div class="flutter-title-group">
+                  <span class="flutter-app-name">Antigravity</span>
+                  <div class="flutter-status-badge">
+                    <span class="dot-pulse"></span>
+                    <span>Online</span>
                   </div>
-                  <div>PASS: TestAuthTokenVerification (0.04s)</div>
-                  <div class="agent-tool-result">✓ 19/19 testes passaram com sucesso</div>
                 </div>
-
-                <div>
-                  Módulo de autenticação validado! Todos os endpoints estão protegidos com verificação de e-mail obrigatória.
-                </div>
+              </div>
+              <div class="flutter-appbar-actions">
+                <button class="appbar-icon-btn" title="Arquivos do Projeto" aria-label="Arquivos do Projeto">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                </button>
+                <button class="appbar-icon-btn" title="Nova Conversa" aria-label="Nova Conversa" onclick="replaySimulation()">
+                  <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                </button>
+                <button class="appbar-icon-btn" title="Escanear QR Code" aria-label="Escanear QR Code">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><rect x="7" y="7" width="3" height="3"></rect><rect x="14" y="7" width="3" height="3"></rect><rect x="7" y="14" width="3" height="3"></rect></svg>
+                </button>
+                <button class="appbar-icon-btn" title="Configurações" aria-label="Configurações">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                </button>
               </div>
             </div>
 
-            <!-- Fake Input -->
+            <!-- Chat Content Simulation Area -->
+            <div class="phone-chat-body" id="simChatBody">
+              <!-- Dynamically populated by Simulation Animation -->
+            </div>
+
+            <!-- Quick Action Chips (like Flutter ActionChip) -->
+            <div class="sim-quick-chips">
+              <button class="sim-chip" onclick="triggerSimPrompt(0)">⚡ Corrigir & Testar</button>
+              <button class="sim-chip" onclick="triggerSimPrompt(1)">🎨 Refatorar UI</button>
+              <button class="sim-chip" onclick="triggerSimPrompt(2)">🚀 Build Release</button>
+            </div>
+
+            <!-- Flutter Mobile Bottom Bar Replica -->
             <div class="phone-input-bar">
-              <div class="phone-fake-input">Envie uma instrução ao agente...</div>
-              <div class="phone-send-btn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              <button class="phone-camera-btn" title="Enviar Foto ou Imagem" aria-label="Câmera">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+              </button>
+              <div class="phone-fake-input-wrapper" id="simInputWrapper">
+                <span id="simInputText" class="phone-fake-input-text">Digite uma instrução ou comando...</span>
+                <span class="sim-cursor" id="simCursor"></span>
               </div>
+              <button class="phone-send-btn" id="simSendBtn" title="Enviar" aria-label="Enviar" onclick="triggerSimPrompt()">
+                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
             </div>
           </div>
         </div>
@@ -1694,7 +1986,253 @@
           qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=6&data=${encodeURIComponent(curUrl)}`;
         }
       } catch (e) {}
+
+      // Start Phone Simulation
+      try {
+        setTimeout(() => {
+          playScenario(0);
+        }, 800);
+      } catch (e) {
+        console.error('Erro ao iniciar simulador:', e);
+      }
     })();
+
+    // ==========================================
+    // Interactive Phone Flutter Simulation Engine
+    // ==========================================
+    const SIM_SCENARIOS = [
+      {
+        prompt: "Implemente a autenticação JWT e execute os testes do backend.",
+        time: "10:42",
+        thinkingLines: "3 linhas",
+        thinkingText: "Identificando tokens e verificando suíte de testes unitários no Go/Gin...",
+        tool: {
+          name: "run_command",
+          cmd: "go test ./...",
+          output: "PASS: TestAuthTokenVerification (0.04s)<br>PASS: TestUserSessionIsolation (0.02s)",
+          success: "✓ 19/19 testes passaram com sucesso"
+        },
+        response: "Módulo de autenticação validado! Todos os endpoints estão protegidos com token seguro e o isolamento de sessão por UID está ativo."
+      },
+      {
+        prompt: "Refatore o componente para Flutter e adicione leitor QR Code.",
+        time: "10:44",
+        thinkingLines: "4 linhas",
+        thinkingText: "Analisando camera_service e integrando QrScannerDialog com foco contínuo...",
+        tool: {
+          name: "edit_file",
+          cmd: "lib/widgets/qr_scanner_dialog.dart",
+          output: "Made 1 replacement in qr_scanner_dialog.dart (+28/-8 lines)",
+          success: "✓ Widget compilado e renderizado"
+        },
+        response: "Pronto! O leitor de QR Code foi integrado diretamente na interface com suporte a pareamento instantâneo via câmera."
+      },
+      {
+        prompt: "Gere o APK release da build 24 e atualize o changelog.",
+        time: "10:46",
+        thinkingLines: "5 linhas",
+        thinkingText: "Compilando Flutter release com ProGuard e assinando pacote AntigravityMobile-v1.4.0...",
+        tool: {
+          name: "run_command",
+          cmd: "flutter build apk --release",
+          output: "Built build/app/outputs/flutter-apk/app-release.apk (73.3MB).",
+          success: "✓ APK v1.4.0 (Build #24) gerado com sucesso"
+        },
+        response: "Build concluído! O arquivo AntigravityMobile-v1.4.0-build24.apk está pronto para download e publicado no repositório de releases."
+      }
+    ];
+
+    let simCurrentScenarioIndex = 0;
+    let simTypingInterval = null;
+    let simTimeoutId = null;
+
+    function updatePhoneClock() {
+      const el = document.getElementById('simPhoneTime');
+      if (!el) return;
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      el.textContent = `${h}:${m}`;
+    }
+
+    function scrollChatToBottom() {
+      const body = document.getElementById('simChatBody');
+      if (body) {
+        body.scrollTo({ top: body.scrollHeight, behavior: 'smooth' });
+      }
+    }
+
+    function resetSimulationUI() {
+      if (simTypingInterval) clearInterval(simTypingInterval);
+      if (simTimeoutId) clearTimeout(simTimeoutId);
+      simTypingInterval = null;
+      simTimeoutId = null;
+
+      const chatBody = document.getElementById('simChatBody');
+      const inputText = document.getElementById('simInputText');
+      const inputWrap = document.getElementById('simInputWrapper');
+      const cursor = document.getElementById('simCursor');
+
+      if (chatBody) chatBody.innerHTML = '';
+      if (inputText) {
+        inputText.textContent = 'Digite uma instrução ou comando...';
+        inputText.classList.remove('has-value');
+      }
+      if (inputWrap) inputWrap.classList.remove('active-typing');
+      if (cursor) cursor.classList.remove('blink');
+    }
+
+    function replaySimulation() {
+      resetSimulationUI();
+      playScenario(simCurrentScenarioIndex);
+    }
+
+    function triggerSimPrompt(index) {
+      resetSimulationUI();
+      if (typeof index === 'number' && SIM_SCENARIOS[index]) {
+        simCurrentScenarioIndex = index;
+      }
+      playScenario(simCurrentScenarioIndex);
+    }
+
+    function playScenario(scenarioIndex) {
+      const scenario = SIM_SCENARIOS[scenarioIndex % SIM_SCENARIOS.length];
+      const chatBody = document.getElementById('simChatBody');
+      const inputText = document.getElementById('simInputText');
+      const inputWrap = document.getElementById('simInputWrapper');
+      const cursor = document.getElementById('simCursor');
+      const sendBtn = document.getElementById('simSendBtn');
+
+      if (!chatBody || !inputText) return;
+
+      updatePhoneClock();
+
+      // Step 1: Typing text into input
+      let charIndex = 0;
+      inputText.textContent = '';
+      inputText.classList.add('has-value');
+      if (inputWrap) inputWrap.classList.add('active-typing');
+      if (cursor) cursor.classList.add('blink');
+
+      simTypingInterval = setInterval(() => {
+        if (charIndex < scenario.prompt.length) {
+          inputText.textContent += scenario.prompt.charAt(charIndex);
+          charIndex++;
+        } else {
+          clearInterval(simTypingInterval);
+          simTypingInterval = null;
+
+          // Step 2: Click Send Button
+          simTimeoutId = setTimeout(() => {
+            if (sendBtn) {
+              sendBtn.classList.add('clicked');
+              setTimeout(() => sendBtn.classList.remove('clicked'), 180);
+            }
+
+            // Clear input & cursor
+            if (inputWrap) inputWrap.classList.remove('active-typing');
+            if (cursor) cursor.classList.remove('blink');
+            inputText.textContent = 'Digite uma instrução ou comando...';
+            inputText.classList.remove('has-value');
+
+            // Render User Bubble
+            const userRow = document.createElement('div');
+            userRow.className = 'sim-row-user';
+            userRow.innerHTML = `
+              <div class="sim-bubble-user">
+                <div>${scenario.prompt}</div>
+                <div class="sim-bubble-meta">
+                  <span>${scenario.time}</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                </div>
+              </div>
+            `;
+            chatBody.appendChild(userRow);
+            scrollChatToBottom();
+
+            // Step 3: Assistant arrives and starts Thinking
+            simTimeoutId = setTimeout(() => {
+              const agentRow = document.createElement('div');
+              agentRow.className = 'sim-row-agent';
+              agentRow.innerHTML = `
+                <div class="sim-avatar">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3z"></path></svg>
+                </div>
+                <div class="sim-bubble-agent" id="simCurrentAgentBubble">
+                  <!-- Thinking Card -->
+                  <div class="sim-thinking-card">
+                    <div class="sim-thinking-header">
+                      <div class="sim-thinking-left">
+                        <div class="sim-thinking-icon-badge">
+                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path></svg>
+                        </div>
+                        <span class="sim-thinking-title">Raciocínio da IA</span>
+                        <span class="sim-thinking-badge">${scenario.thinkingLines}</span>
+                      </div>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#818CF8" stroke-width="2"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </div>
+                    <div class="sim-thinking-body">
+                      ${scenario.thinkingText}
+                    </div>
+                  </div>
+                </div>
+              `;
+              chatBody.appendChild(agentRow);
+              scrollChatToBottom();
+
+              const agentBubble = document.getElementById('simCurrentAgentBubble');
+
+              // Step 4: Tool execution card appears
+              simTimeoutId = setTimeout(() => {
+                if (!agentBubble) return;
+                const toolCard = document.createElement('div');
+                toolCard.className = 'sim-tool-card';
+                toolCard.innerHTML = `
+                  <div class="sim-tool-header">
+                    <div class="sim-tool-left">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                      <span>${scenario.tool.name}</span>
+                    </div>
+                    <span class="sim-tool-cmd">${scenario.tool.cmd}</span>
+                  </div>
+                  <div class="sim-tool-body">
+                    <div>${scenario.tool.output}</div>
+                    <div class="sim-tool-success">${scenario.tool.success}</div>
+                  </div>
+                `;
+                agentBubble.appendChild(toolCard);
+                scrollChatToBottom();
+
+                // Step 5: Final text response appears
+                simTimeoutId = setTimeout(() => {
+                  if (!agentBubble) return;
+                  const textEl = document.createElement('div');
+                  textEl.className = 'sim-agent-text';
+                  textEl.textContent = scenario.response;
+                  agentBubble.appendChild(textEl);
+
+                  const footerEl = document.createElement('div');
+                  footerEl.className = 'sim-agent-footer';
+                  footerEl.innerHTML = `
+                    <span>Antigravity 2.0</span> • <span>Agora</span>
+                  `;
+                  agentBubble.appendChild(footerEl);
+                  agentBubble.removeAttribute('id'); // release ID
+                  scrollChatToBottom();
+
+                  // Step 6: Wait 6.5 seconds, then transition to next scenario
+                  simTimeoutId = setTimeout(() => {
+                    simCurrentScenarioIndex = (simCurrentScenarioIndex + 1) % SIM_SCENARIOS.length;
+                    replaySimulation();
+                  }, 6500);
+
+                }, 800);
+              }, 1000);
+            }, 550);
+          }, 450);
+        }
+      }, 35);
+    }
   </script>
 </body>
 </html>
