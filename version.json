@@ -1,7 +1,7 @@
 {
   "version": "1.4.0",
-  "build": 23,
-  "releasedAt": "2026-11-01T00:12:44Z",
-  "changelog": "Confirmacao de e-mail obrigatoria, onboarding de conexao e leitor de QR Code por camera",
-  "downloadUrl": "https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/AntigravityMobile-v1.4.0-build23.apk"
+  "build": 24,
+  "releasedAt": "2026-11-01T02:22:21Z",
+  "changelog": "Isolamento multi-usuario por UID, limpeza total no logout, autenticacao nas rotas HTTP e correcao do explorer de arquivos",
+  "downloadUrl": "https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/AntigravityMobile-v1.4.0-build24.apk"
 }
