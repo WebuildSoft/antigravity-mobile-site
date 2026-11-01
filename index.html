@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Antigravity Mobile • Seu Agente de IA no Celular</title>
+  <meta name="description" content="Baixe o Antigravity Mobile Companion para Android. Programe, execute comandos e controle seu agente de IA remotamente pelo smartphone com servidor local ou servidor em nuvem.">
+  <link rel="icon" type="image/png" href="icons/Icon-192.png">
+  <meta name="theme-color" content="#080B11">
+
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Antigravity Mobile • Companion Oficial de IA">
+  <meta property="og:description" content="Controle seu agente de IA pelo celular com execução de ferramentas, terminal e conexão local ou em nuvem.">
+  <meta property="og:image" content="icons/Icon-512.png">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root {
+      --bg: #080B11;
+      --card-bg: rgba(15, 23, 42, 0.75);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --card-hover: rgba(255, 255, 255, 0.12);
+      --primary: #0284C7;
+      --primary-hover: #0369A1;
+      --accent: #38BDF8;
+      --cloud-purple: #8B5CF6;
+      --cloud-gradient: linear-gradient(135deg, #8B5CF6 0%, #06B6D4 100%);
+      --emerald: #10B981;
+      --amber: #F59E0B;
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      position: relative;
+    }
+
+    /* Ambient Background Lights */
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+      animation: floatGlow 14s infinite alternate ease-in-out;
+    }
+    .glow-1 {
+      top: -150px;
+      left: 20%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #0284c7 0%, transparent 70%);
+    }
+    .glow-2 {
+      top: 30%;
+      right: -100px;
+      width: 450px;
+      height: 450px;
+      background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
+      animation-delay: -5s;
+    }
+    .glow-3 {
+      bottom: 10%;
+      left: 10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
+      animation-delay: -8s;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translateY(0px) scale(1); }
+      100% { transform: translateY(40px) scale(1.1); }
+    }
+
+    /* Layout Container */
+    .container {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Navigation Bar */
+    header {
+      width: 100%;
+      border-bottom: 1px solid var(--card-border);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      background: rgba(8, 11, 17, 0.85);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #fff;
+    }
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .brand-title span.tag {
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-link {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link:hover { color: #fff; }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 70px 0 50px;
+      text-align: center;
+    }
+
+    .pill-announcement {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      padding: 6px 16px;
+      border-radius: 30px;
+      color: #C4B5FD;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .pill-announcement:hover {
+      background: rgba(139, 92, 246, 0.2);
+      border-color: rgba(139, 92, 246, 0.5);
+      transform: translateY(-1px);
+    }
+    .pill-badge {
+      background: #8B5CF6;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    h1.hero-title {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -1.2px;
+      line-height: 1.15;
+      color: #FFFFFF;
+      max-width: 840px;
+      margin: 0 auto 20px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #FFFFFF 30%, #38BDF8 70%, #818CF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.hero-desc {
+      font-size: 18px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    /* Hero Buttons */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+      color: #FFFFFF;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(2, 132, 199, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-download:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(2, 132, 199, 0.65);
+      background: linear-gradient(135deg, #0369A1 0%, #0284C7 100%);
+    }
+    .btn-download .btn-badge {
+      background: rgba(255, 255, 255, 0.2);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      padding: 16px 26px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .trust-bullets {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+    .trust-bullet {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .trust-bullet svg {
+      color: var(--emerald);
+    }
+
+    /* Device Mockup Preview */
+    .mockup-wrapper {
+      margin: 50px auto 40px;
+      max-width: 420px;
+      position: relative;
+    }
+    .mockup-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 380px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.25) 0%, rgba(139, 92, 246, 0.15) 50%, transparent 70%);
+      filter: blur(50px);
+      z-index: 0;
+    }
+    .phone-frame {
+      position: relative;
+      z-index: 1;
+      background: #0B111E;
+      border: 2px solid rgba(255, 255, 255, 0.12);
+      border-radius: 44px;
+      padding: 12px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+    .phone-screen {
+      background: #090D16;
+      border-radius: 34px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Phone Internal UI */
+    .phone-top-bar {
+      height: 28px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      font-weight: 600;
+      color: #94A3B8;
+      background: #090D16;
+    }
+    .phone-island {
+      width: 70px;
+      height: 14px;
+      background: #000;
+      border-radius: 10px;
+      margin: 0 auto;
+    }
+
+    .phone-app-header {
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(15, 23, 42, 0.6);
+    }
+    .phone-app-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .phone-app-brand img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+    .phone-app-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFF;
+    }
+    .phone-conn-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      padding: 3px 8px;
+      border-radius: 12px;
+      font-size: 10.5px;
+      font-weight: 600;
+    }
+    .dot-pulse {
+      width: 6px;
+      height: 6px;
+      background: #10B981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10B981;
+    }
+
+    .phone-chat-body {
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 12px;
+    }
+
+    .bubble-user {
+      align-self: flex-end;
+      background: #0284C7;
+      color: #FFF;
+      padding: 10px 14px;
+      border-radius: 16px 16px 4px 16px;
+      max-width: 85%;
+      line-height: 1.4;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+    }
+
+    .bubble-agent {
+      align-self: flex-start;
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #E2E8F0;
+      padding: 12px;
+      border-radius: 16px 16px 16px 4px;
+      max-width: 95%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .agent-thinking {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 5px 10px;
+      border-radius: 8px;
+      font-size: 11px;
+      color: #C4B5FD;
+      font-weight: 600;
+    }
+
+    .agent-tool {
+      background: #050810;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: #38BDF8;
+    }
+    .agent-tool-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+      color: #94A3B8;
+      font-size: 10px;
+    }
+    .agent-tool-result {
+      color: #34D399;
+      font-size: 10px;
+      margin-top: 4px;
+    }
+
+    .phone-input-bar {
+      padding: 12px 14px;
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .phone-fake-input {
+      flex: 1;
+      height: 34px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 18px;
+      padding: 0 12px;
+      color: #64748B;
+      font-size: 11px;
+      display: flex;
+      align-items: center;
+    }
+    .phone-send-btn {
+      width: 32px;
+      height: 32px;
+      background: #0284C7;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+    }
+
+    /* Section Headers */
+    .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .section-tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.8px;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+    }
+    .section-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Connection Modes Section */
+    .modes-section {
+      padding: 60px 0;
+    }
+    .modes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 20px;
+    }
+
+    /* Local Server Card */
+    .mode-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 28px;
+      padding: 32px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .mode-card:hover {
+      border-color: var(--card-hover);
+    }
+
+    .mode-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      width: fit-content;
+      margin-bottom: 16px;
+    }
+    .badge-available {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .badge-upcoming {
+      background: rgba(139, 92, 246, 0.15);
+      color: #C4B5FD;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+
+    .mode-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+    .mode-card p.mode-summary {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    /* Terminal Snippet Box */
+    .terminal-box {
+      background: #03060C;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: #E2E8F0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .terminal-code {
+      overflow-x: auto;
+      white-space: nowrap;
+      color: #38BDF8;
+    }
+    .terminal-code span.prompt {
+      color: #64748B;
+      user-select: none;
+    }
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #F1F5F9;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .btn-copy:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13.5px;
+      color: #CBD5E1;
+      margin-top: auto;
+    }
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .feature-list li svg {
+      flex-shrink: 0;
+      color: var(--emerald);
+    }
+
+    /* Cloud Server Card Special Glow */
+    .mode-card-cloud {
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      background: radial-gradient(circle at top right, rgba(139, 92, 246, 0.15) 0%, rgba(15, 23, 42, 0.8) 60%);
+      box-shadow: 0 10px 40px rgba(139, 92, 246, 0.15);
+    }
+    .mode-card-cloud:hover {
+      border-color: rgba(139, 92, 246, 0.7);
+    }
+
+    /* Waitlist Input */
+    .waitlist-form {
+      margin-top: 24px;
+      display: flex;
+      gap: 8px;
+      width: 100%;
+    }
+    .waitlist-input {
+      flex: 1;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      padding: 10px 14px;
+      border-radius: 12px;
+      color: #FFF;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .waitlist-input:focus {
+      border-color: #8B5CF6;
+    }
+    .waitlist-btn {
+      background: var(--cloud-gradient);
+      color: #FFF;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      white-space: nowrap;
+    }
+    .waitlist-btn:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+    .waitlist-success {
+      display: none;
+      font-size: 12px;
+      color: #34D399;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    /* Features Grid */
+    .features-section {
+      padding: 60px 0;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 20px;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(10px);
+      transition: all 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--card-hover);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+    .feature-icon-wrapper {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .feature-card h4 {
+      font-size: 17px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .feature-card p {
+      font-size: 13.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Desktop QR Code Card */
+    .qr-banner {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(2, 132, 199, 0.12) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 28px;
+      padding: 36px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      margin: 40px 0;
+    }
+    .qr-banner-text h3 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+    .qr-banner-text p {
+      font-size: 14.5px;
+      color: var(--text-muted);
+      max-width: 500px;
+    }
+    .qr-img-box {
+      background: #FFFFFF;
+      padding: 10px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      flex-shrink: 0;
+    }
+    .qr-img-box img {
+      display: block;
+      width: 120px;
+      height: 120px;
+    }
+
+    /* Installation Steps */
+    .steps-section {
+      padding: 60px 0;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+    .step-box {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 24px;
+      position: relative;
+    }
+    .step-counter {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--accent);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    .step-box h5 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 6px;
+    }
+    .step-box p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 50px 0 80px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover {
+      border-color: var(--card-hover);
+    }
+    .faq-question {
+      padding: 18px 24px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      user-select: none;
+    }
+    .faq-question svg {
+      transition: transform 0.2s;
+      color: var(--accent);
+    }
+    .faq-item.open .faq-question svg {
+      transform: rotate(180deg);
+    }
+    .faq-answer {
+      display: none;
+      padding: 0 24px 20px;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0;
+      background: #05070D;
+      text-align: center;
+      font-size: 13px;
+      color: #64748B;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: #FFF; }
+
+    /* Responsive */
+    @media (max-width: 840px) {
+      .modes-grid { grid-template-columns: 1fr; }
+      h1.hero-title { font-size: 36px; }
+      .qr-banner { flex-direction: column; text-align: center; }
+      .nav-links .nav-link { display: none; }
+    }
+    @media (max-width: 600px) {
+      .hero { padding: 40px 0 30px; }
+      h1.hero-title { font-size: 28px; }
+      p.hero-desc { font-size: 15px; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-download, .btn-outline { width: 100%; justify-content: center; }
+      .waitlist-form { flex-direction: column; }
+      .qr-banner { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Light Blobs -->
+  <div class="glow-blob glow-1"></div>
+  <div class="glow-blob glow-2"></div>
+  <div class="glow-blob glow-3"></div>
+
+  <!-- Header / Navigation -->
+  <header>
+    <div class="container nav-inner">
+      <a href="#" class="brand">
+        <img src="icons/Icon-192.png" alt="Antigravity Mobile Logo">
+        <div class="brand-title">
+          Antigravity Mobile
+          <span class="tag" id="navVersionTag">v1.4.0</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="#modos" class="nav-link">Servidores</a>
+        <a href="#recursos" class="nav-link">Recursos</a>
+        <a href="#passos" class="nav-link">Como Instalar</a>
+        <a href="#faq" class="nav-link">Dúvidas</a>
+        <a href="https://github.com/WebuildSoft/Antigravity-mobile" target="_blank" rel="noopener" class="nav-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <a href="#servidor-nuvem" class="pill-announcement">
+        <span class="pill-badge">Em Breve</span>
+        <span>Servidor em Nuvem dedicado para rodar sem computador ligado! ➔</span>
+      </a>
+
+      <h1 class="hero-title">
+        O poder do seu Agente de IA, <span class="gradient-text">agora no seu celular.</span>
+      </h1>
+
+      <p class="hero-desc">
+        Desenvolva, execute comandos de terminal, aprove ferramentas e acompanhe o raciocínio do Antigravity 2.0 pelo smartphone com latência zero e conexão direta.
+      </p>
+
+      <div class="hero-actions">
+        <a id="heroDownloadBtn" href="https://github.com/WebuildSoft/antigravity-mobile-releases/latest/download/AntigravityMobile-v1.4.0-build23.apk" class="btn-download">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Baixar APK Android</span>
+          <span class="btn-badge" id="buildBadge">Build #23</span>
+        </a>
+
+        <a href="#modos" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+            <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+            <line x1="6" y1="6" x2="6.01" y2="6"></line>
+            <line x1="6" y1="18" x2="6.01" y2="18"></line>
+          </svg>
+          <span>Ver Modos de Servidor</span>
+        </a>
+      </div>
+
+      <div class="trust-bullets">
+        <div class="trust-bullet">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          100% Gratuito & Open Source
+        </div>
+        <div class="trust-bullet">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Pareamento por Câmera (QR Code)
+        </div>
+        <div class="trust-bullet">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Privacidade & Zero Vazamento de Dados
+        </div>
+      </div>
+
+      <!-- Interactive Phone Mockup Preview -->
+      <div class="mockup-wrapper">
+        <div class="mockup-glow"></div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <!-- Notch / Status -->
+            <div class="phone-top-bar">
+              <span>09:41</span>
+              <div class="phone-island"></div>
+              <span>5G 100%</span>
+            </div>
+
+            <!-- Top Header -->
+            <div class="phone-app-header">
+              <div class="phone-app-brand">
+                <img src="icons/Icon-192.png" alt="Icon">
+                <span class="phone-app-name">Antigravity 2.0</span>
+              </div>
+              <div class="phone-conn-badge">
+                <span class="dot-pulse"></span>
+                <span>Conectado</span>
+              </div>
+            </div>
+
+            <!-- Chat Content Simulation -->
+            <div class="phone-chat-body">
+              <div class="bubble-user">
+                Implemente a autenticação JWT e execute os testes do backend.
+              </div>
+
+              <div class="bubble-agent">
+                <div class="agent-thinking">
+                  <span>🧠 Pensando (2.4s): Analisando tokens e rotas protegidas...</span>
+                </div>
+
+                <div class="agent-tool">
+                  <div class="agent-tool-head">
+                    <span>⚡ run_command</span>
+                    <span>go test ./...</span>
+                  </div>
+                  <div>PASS: TestAuthTokenVerification (0.04s)</div>
+                  <div class="agent-tool-result">✓ 19/19 testes passaram com sucesso</div>
+                </div>
+
+                <div>
+                  Módulo de autenticação validado! Todos os endpoints estão protegidos com verificação de e-mail obrigatória.
+                </div>
+              </div>
+            </div>
+
+            <!-- Fake Input -->
+            <div class="phone-input-bar">
+              <div class="phone-fake-input">Envie uma instrução ao agente...</div>
+              <div class="phone-send-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connection Modes Section -->
+    <section class="modes-section" id="modos">
+      <div class="section-header">
+        <span class="section-tag">Infraestrutura Flexível</span>
+        <h2 class="section-title">Dois Modos de Conexão: Escolha o Seu</h2>
+        <p class="section-desc">
+          Você tem total controle. Conecte ao seu próprio computador hoje ou use nossa infraestrutura de nuvem dedicada que chegará em breve.
+        </p>
+      </div>
+
+      <div class="modes-grid">
+        <!-- Mode 1: Self-Hosted -->
+        <div class="mode-card">
+          <div class="mode-badge badge-available">
+            <span class="dot-pulse"></span>
+            DISPONÍVEL AGORA
+          </div>
+
+          <h3>Servidor Local (Self-Hosted)</h3>
+          <p class="mode-summary">
+            Perfeito para quem já utiliza o Antigravity no computador e quer total privacidade executando comandos diretamente na sua máquina local.
+          </p>
+
+          <div class="terminal-box">
+            <div class="terminal-code">
+              <span class="prompt">$ </span>curl -sSL https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.sh | bash
+            </div>
+            <button class="btn-copy" onclick="copyTerminal('curl -sSL https://raw.githubusercontent.com/WebuildSoft/antigravity-server/main/install.sh | bash', this)">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              <span>Copiar</span>
+            </button>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap;">
+            <a href="https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/antigravity-server.zip" class="btn-outline" style="padding: 10px 18px; font-size: 13px; border-radius: 12px; flex: 1; justify-content: center; text-decoration: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+              <span>Baixar Servidor (.zip)</span>
+            </a>
+            <a href="https://github.com/WebuildSoft/antigravity-server" target="_blank" rel="noopener" class="btn-outline" style="padding: 10px 18px; font-size: 13px; border-radius: 12px; justify-content: center; text-decoration: none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <ul class="feature-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Pareamento instantâneo via QR Code no terminal
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Acesso aos arquivos e repositórios locais do seu PC
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Zero envio de telemetria ou dados para terceiros
+            </li>
+          </ul>
+        </div>
+
+        <!-- Mode 2: Cloud Server (UPCOMING) -->
+        <div class="mode-card mode-card-cloud" id="servidor-nuvem">
+          <div class="mode-badge badge-upcoming">
+            🚀 EM DESENVOLVIMENTO • ROADMAP
+          </div>
+
+          <h3>Servidor em Nuvem Dedicado</h3>
+          <p class="mode-summary">
+            <strong>Sem computador ligado!</strong> Estamos criando nós de servidores em nuvem de alta disponibilidade 24/7. Você poderá programar de qualquer lugar do mundo diretamente pelo celular.
+          </p>
+
+          <ul class="feature-list">
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Sem necessidade de PC ou terminal ligado em casa
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Acesso remoto seguro por 4G, 5G ou Wi-Fi
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Workspaces e containers isolados por usuário
+            </li>
+            <li>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C4B5FD" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Sincronização contínua com seu GitHub
+            </li>
+          </ul>
+
+          <div class="waitlist-form">
+            <input type="email" id="waitlistEmail" class="waitlist-input" placeholder="Seu e-mail para ser avisado...">
+            <button class="waitlist-btn" onclick="submitWaitlist()">Quero Acesso</button>
+          </div>
+          <div class="waitlist-success" id="waitlistMsg">
+            ✓ E-mail registrado! Avisaremos assim que o servidor em nuvem abrir.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Desktop QR Code Download Box -->
+    <div class="qr-banner">
+      <div class="qr-banner-text">
+        <h3>Está acessando pelo computador?</h3>
+        <p>Aponte a câmera do seu smartphone Android para o QR Code ao lado para iniciar o download do APK diretamente no seu celular.</p>
+      </div>
+      <div class="qr-img-box">
+        <img id="dynamicQrCode" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://github.com/WebuildSoft/antigravity-mobile-releases/latest" alt="QR Code para baixar o app">
+      </div>
+    </div>
+
+    <!-- Core Features Section -->
+    <section class="features-section" id="recursos">
+      <div class="section-header">
+        <span class="section-tag">Recursos Avançados</span>
+        <h2 class="section-title">Desenvolvido para Desenvolvedores</h2>
+        <p class="section-desc">
+          Tudo que você precisa para manter o controle total do seu agente de IA em qualquer lugar.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+          </div>
+          <h4>Terminal & Execução</h4>
+          <p>Execute scripts, aprove comandos com um toque e acompanhe a saída de compilação ou testes em tempo real.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          </div>
+          <h4>Thinking Visual</h4>
+          <p>Veja os passos de raciocínio lógico que o modelo toma antes de tomar decisões ou editar arquivos no seu código.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          </div>
+          <h4>Pareamento por Câmera</h4>
+          <p>Leitor de QR Code integrado no próprio aplicativo. Aponte para o terminal do computador e conecte em 2 segundos.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <h4>Higienizado & Seguro</h4>
+          <p>Sem vazamento de IPs de rede local, caminhos confidenciais ou contas de terceiros. Instalação 100% limpa.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          </div>
+          <h4>Monitor de Quotas</h4>
+          <p>Acompanhe o consumo e a disponibilidade de requisições de cada modelo (Flash, Pro, Lite) direto na interface.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          </div>
+          <h4>Editor & Diff Viewer</h4>
+          <p>Visualize as alterações de arquivos propostas pela IA com destaque de sintaxe e aceite ou rejeite facilmente.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Steps Section -->
+    <section class="steps-section" id="passos">
+      <div class="section-header">
+        <span class="section-tag">Guia de Instalação</span>
+        <h2 class="section-title">Como Instalar no Android</h2>
+        <p class="section-desc">
+          O processo leva menos de 1 minuto. Siga os passos abaixo:
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-box">
+          <div class="step-counter">1</div>
+          <h5>Baixe o APK</h5>
+          <p>Toque no botão principal de download para obter o arquivo <code>AntigravityMobile-v1.4.0-build23.apk</code>.</p>
+        </div>
+
+        <div class="step-box">
+          <div class="step-counter">2</div>
+          <h5>Confirme o Download</h5>
+          <p>Se o navegador exibir o aviso de segurança do Android, escolha <em>"Fazer download mesmo assim"</em>.</p>
+        </div>
+
+        <div class="step-box">
+          <div class="step-counter">3</div>
+          <h5>Instale no Celular</h5>
+          <p>Toque na notificação de download concluído e clique em <em>Instalar</em>.</p>
+        </div>
+
+        <div class="step-box">
+          <div class="step-counter">4</div>
+          <h5>Inicie e Conecte</h5>
+          <p>Abra o app, aponte a câmera para o QR Code gerado pelo <code>./start.sh</code> e pronto!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="section-header">
+        <span class="section-tag">Perguntas Frequentes</span>
+        <h2 class="section-title">Dúvidas Comuns</h2>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Preciso ter um computador ligado para usar o aplicativo?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            Hoje, no modo <strong>Servidor Local (Self-Hosted)</strong>, sim: você executa o script <code>./start.sh</code> no seu computador e pareia pelo QR Code. Porém, nosso <strong>Servidor em Nuvem Dedicado</strong> já está em desenvolvimento! Assim que for lançado, você poderá usar o Antigravity sem precisar de computador nenhum.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Como funciona a segurança e privacidade dos meus dados?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            O aplicativo passa por higienização completa. Nenhuma credencial privada, conta Google ou caminho interno de arquivo é compartilhado. O login requer verificação de e-mail e a conexão utiliza WebSocket autenticado com tokens seguros.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Consigo usar pela internet móvel (4G/5G) fora de casa?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            Sim! Com o modo Local você pode utilizar túneis reversos seguros (como Cloudflare Tunnel ou Ngrok), e quando o Servidor em Nuvem Dedicado estiver disponível, a conexão remota será nativa e automática de qualquer lugar.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Haverá versão na Google Play Store ou versão para iOS?</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            Sim! O aplicativo foi desenvolvido com Flutter multi-plataforma. Estamos preparando o processo de submissão para a Google Play Store e também os builds para dispositivos Apple iOS.
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/WebuildSoft/Antigravity-mobile" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/WebuildSoft/antigravity-mobile-releases" target="_blank" rel="noopener">Releases</a>
+        <a href="#modos">Servidores</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <p id="footerCopy">Antigravity Mobile • Desenvolvido por Nilson • Licença Open Source 2026</p>
+    </div>
+  </footer>
+
+  <script>
+    // Copy command functionality
+    function copyTerminal(text, btnEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = btnEl.innerHTML;
+        btnEl.innerHTML = `<span>✓ Copiado!</span>`;
+        btnEl.style.color = '#34D399';
+        btnEl.style.borderColor = '#34D399';
+        setTimeout(() => {
+          btnEl.innerHTML = originalText;
+          btnEl.style.color = '';
+          btnEl.style.borderColor = '';
+        }, 2000);
+      }).catch(err => {
+        console.error('Falha ao copiar:', err);
+      });
+    }
+
+    // Toggle FAQ Accordion
+    function toggleFaq(el) {
+      const parent = el.parentElement;
+      parent.classList.toggle('open');
+    }
+
+    // Waitlist Form submission
+    function submitWaitlist() {
+      const emailInput = document.getElementById('waitlistEmail');
+      const email = emailInput.value.trim();
+      const msg = document.getElementById('waitlistMsg');
+
+      if (!email || !email.includes('@')) {
+        alert('Por favor, informe um endereço de e-mail válido.');
+        return;
+      }
+
+      try {
+        localStorage.setItem('antigravity_cloud_waitlist', email);
+      } catch (e) {}
+
+      emailInput.style.display = 'none';
+      event.target.style.display = 'none';
+      msg.style.display = 'block';
+    }
+
+    // Load Version dynamically
+    (async function init() {
+      try {
+        const res = await fetch('version.json?t=' + Date.now());
+        if (res.ok) {
+          const data = await res.json();
+          if (data.version) {
+            const vStr = `v${data.version}`;
+            document.getElementById('navVersionTag').innerText = vStr;
+            document.getElementById('buildBadge').innerText = `Build #${data.build}`;
+            
+            if (data.downloadUrl) {
+              const heroBtn = document.getElementById('heroDownloadBtn');
+              if (heroBtn) heroBtn.href = data.downloadUrl;
+            }
+          }
+        }
+      } catch (err) {
+        console.log('Usando informações padrão de versão');
+      }
+
+      // Update QR Code with current page URL
+      try {
+        const curUrl = window.location.href;
+        const qr = document.getElementById('dynamicQrCode');
+        if (qr) {
+          qr.src = `https://api.qrserver.com/v1/create-qr-code/?size=240x240&margin=6&data=${encodeURIComponent(curUrl)}`;
+        }
+      } catch (e) {}
+    })();
+  </script>
+</body>
+</html>
