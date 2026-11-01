@@ -736,24 +736,64 @@
       border-radius: 22px;
       padding: 28px;
       backdrop-filter: blur(10px);
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
     }
     .feature-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-4px);
       border-color: var(--card-hover);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
     }
     .feature-icon-wrapper {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      background: rgba(56, 189, 248, 0.1);
-      border: 1px solid rgba(56, 189, 248, 0.2);
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .feature-card:hover .feature-icon-wrapper {
+      transform: scale(1.1) translateY(-2px);
+    }
+    .feature-icon-terminal {
+      background: radial-gradient(circle at 30% 30%, rgba(56, 189, 248, 0.25) 0%, rgba(2, 132, 199, 0.08) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #38BDF8;
+      box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2);
+    }
+    .feature-icon-thinking {
+      background: radial-gradient(circle at 30% 30%, rgba(168, 85, 247, 0.25) 0%, rgba(236, 72, 153, 0.08) 100%);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: #C084FC;
+      box-shadow: 0 8px 24px rgba(168, 85, 247, 0.2);
+    }
+    .feature-icon-camera {
+      background: radial-gradient(circle at 30% 30%, rgba(16, 185, 129, 0.25) 0%, rgba(20, 184, 166, 0.08) 100%);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34D399;
+      box-shadow: 0 8px 24px rgba(16, 185, 129, 0.2);
+    }
+    .feature-icon-security {
+      background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.25) 0%, rgba(239, 68, 68, 0.08) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FBBF24;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+    }
+    .feature-icon-quota {
+      background: radial-gradient(circle at 30% 30%, rgba(14, 165, 233, 0.25) 0%, rgba(99, 102, 241, 0.08) 100%);
+      border: 1px solid rgba(14, 165, 233, 0.35);
+      color: #60A5FA;
+      box-shadow: 0 8px 24px rgba(14, 165, 233, 0.2);
+    }
+    .feature-icon-diff {
+      background: radial-gradient(circle at 30% 30%, rgba(34, 197, 94, 0.25) 0%, rgba(6, 182, 212, 0.08) 100%);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: #4ADE80;
+      box-shadow: 0 8px 24px rgba(34, 197, 94, 0.2);
     }
     .feature-card h4 {
       font-size: 17px;
@@ -815,23 +855,49 @@
     .step-box {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 20px;
-      padding: 24px;
+      border-radius: 22px;
+      padding: 26px 24px;
       position: relative;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
     }
-    .step-counter {
-      width: 32px;
-      height: 32px;
-      border-radius: 10px;
-      background: rgba(56, 189, 248, 0.15);
-      color: var(--accent);
-      border: 1px solid rgba(56, 189, 248, 0.3);
+    .step-box:hover {
+      transform: translateY(-4px);
+      border-color: var(--card-hover);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+    .step-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+    .step-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+      color: var(--accent);
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.15);
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .step-box:hover .step-icon-badge {
+      transform: scale(1.1) rotate(4deg);
+    }
+    .step-num-pill {
+      font-size: 11px;
       font-weight: 800;
-      margin-bottom: 16px;
+      color: #94A3B8;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 4px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      letter-spacing: 0.5px;
     }
     .step-box h5 {
       font-size: 15px;
@@ -877,11 +943,29 @@
       cursor: pointer;
       user-select: none;
     }
-    .faq-question svg {
+    .faq-q-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-icon-pill {
+      width: 32px;
+      height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+    .faq-question svg.faq-chevron {
       transition: transform 0.2s;
       color: var(--accent);
+      flex-shrink: 0;
     }
-    .faq-item.open .faq-question svg {
+    .faq-item.open .faq-question svg.faq-chevron {
       transform: rotate(180deg);
     }
     .faq-answer {
@@ -977,6 +1061,7 @@
     <section class="hero">
       <a href="#servidor-nuvem" class="pill-announcement">
         <span class="pill-badge">Em Breve</span>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px;"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"></path><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"></path><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path><path d="M12 9V4s3.03.55 4 2c1.08 1.62 0 5 0 5"></path></svg>
         <span>Servidor em Nuvem dedicado para rodar sem computador ligado! ➔</span>
       </a>
 
@@ -989,14 +1074,15 @@
       </p>
 
       <div class="hero-actions">
-        <a id="heroDownloadBtn" href="https://github.com/WebuildSoft/antigravity-mobile-releases/latest/download/AntigravityMobile-v1.4.0-build23.apk" class="btn-download">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
+        <a id="heroDownloadBtn" href="https://github.com/WebuildSoft/antigravity-mobile-releases/latest/download/AntigravityMobile-v1.4.0-build24.apk" class="btn-download">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink: 0;">
+            <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.997-3.4582c.1122-.1944.0455-.4426-.1488-.5548-.1943-.1121-.4425-.0454-.5548.1489l-2.0243 3.5056c-1.528-.6968-3.238-1.0877-5.0504-1.0877s-3.5224.3909-5.0504 1.0877l-2.0243-3.5056c-.1123-.1943-.3605-.261-.5548-.1489-.1943.1122-.261.3604-.1488.5548l1.997 3.4582C2.6886 11.2386.992 14.6586.992 18.5714h22.016c0-3.9128-1.6966-7.3328-5.1275-9.25"/>
           </svg>
-          <span>Baixar APK Android</span>
-          <span class="btn-badge" id="buildBadge">Build #23</span>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1.25;">
+            <span style="font-size: 15px; font-weight: 800;">Baixar APK Android</span>
+            <span style="font-size: 11px; font-weight: 500; opacity: 0.85;">v1.4.0 • Direto & Seguro</span>
+          </div>
+          <span class="btn-badge" id="buildBadge">Build #24</span>
         </a>
 
         <a href="#modos" class="btn-outline">
@@ -1012,16 +1098,16 @@
 
       <div class="trust-bullets">
         <div class="trust-bullet">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
           100% Gratuito & Open Source
         </div>
         <div class="trust-bullet">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34D399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><rect x="9" y="9" width="6" height="6" rx="1"></rect></svg>
           Pareamento por Câmera (QR Code)
         </div>
         <div class="trust-bullet">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Privacidade & Zero Vazamento de Dados
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          Privacidade & Zero Vazamento
         </div>
       </div>
 
@@ -1057,12 +1143,16 @@
 
               <div class="bubble-agent">
                 <div class="agent-thinking">
-                  <span>🧠 Pensando (2.4s): Analisando tokens e rotas protegidas...</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z"></path><path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path></svg>
+                  <span>Pensando (2.4s): Analisando tokens e rotas protegidas...</span>
                 </div>
 
                 <div class="agent-tool">
                   <div class="agent-tool-head">
-                    <span>⚡ run_command</span>
+                    <span style="display: inline-flex; align-items: center; gap: 4px; font-weight: 700; color: #FBBF24;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                      run_command
+                    </span>
                     <span>go test ./...</span>
                   </div>
                   <div>PASS: TestAuthTokenVerification (0.04s)</div>
@@ -1105,15 +1195,30 @@
             DISPONÍVEL AGORA
           </div>
 
-          <h3>Servidor Local (Self-Hosted)</h3>
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(56, 189, 248, 0.15); border: 1px solid rgba(56, 189, 248, 0.3); display: flex; align-items: center; justify-content: center; color: #38BDF8; box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2); flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+            </div>
+            <h3 style="margin-bottom: 0;">Servidor Local (Self-Hosted)</h3>
+          </div>
+
           <p class="mode-summary">
             Perfeito para quem já utiliza o Antigravity no computador e quer total privacidade executando comandos diretamente na sua máquina local.
           </p>
 
           <div class="os-tabs" style="display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap;">
-            <button id="tabWin" type="button" onclick="switchOsTab('win')" style="padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; transition: all 0.2s;">🪟 Windows</button>
-            <button id="tabLinux" type="button" onclick="switchOsTab('linux')" style="padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">🐧 Linux</button>
-            <button id="tabMac" type="button" onclick="switchOsTab('mac')" style="padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">🍎 macOS</button>
+            <button id="tabWin" type="button" onclick="switchOsTab('win')" style="display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); cursor: pointer; transition: all 0.2s;">
+              <svg width="14" height="14" viewBox="0 0 88 88" fill="currentColor"><path d="M0 12.402l35.687-4.86.016 34.423-35.67.203zm35.67 33.529l.028 34.453L.028 75.48.016 46.134zM40.97 6.848L87.984 0l.016 41.51-47.03.351zm47.03 39.066l-.016 42.086-46.99-6.58-.028-35.158z"/></svg>
+              <span>Windows</span>
+            </button>
+            <button id="tabLinux" type="button" onclick="switchOsTab('linux')" style="display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line><polyline points="6 8 9 10 6 12"></polyline><line x1="11" y1="12" x2="15" y2="12"></line></svg>
+              <span>Linux</span>
+            </button>
+            <button id="tabMac" type="button" onclick="switchOsTab('mac')" style="display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; font-size: 12.5px; font-weight: 600; border-radius: 10px; background: rgba(255, 255, 255, 0.05); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.1); cursor: pointer; transition: all 0.2s;">
+              <svg width="13" height="13" viewBox="0 0 170 170" fill="currentColor"><path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.75 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.58-7.71-11.64-14.01-6.1-9.46-10.98-20.3-14.65-32.53-3.67-12.22-5.5-23.85-5.5-34.88 0-14.9 3.59-27.18 10.76-36.83 7.18-9.65 16.4-14.59 27.67-14.83 4.89 0 10.15 1.25 15.77 3.75 5.62 2.5 9.4 3.86 11.35 4.08 1.94-.22 5.92-1.63 11.95-4.22 6.02-2.58 11.14-3.75 15.34-3.5 11.33.51 20.67 4.96 28.02 13.36-9.82 5.98-14.64 14.35-14.47 25.1.18 8.65 3.37 15.86 9.58 21.63 6.2 5.77 13.88 9.07 23.03 9.9-2.18 6.53-4.78 13.1-7.81 19.72zm-35.37-104.22c-.17 3.5-1.12 7.13-2.85 10.88-1.74 3.75-4.25 7.02-7.53 9.8-3.35 2.84-6.84 4.88-10.47 6.13-.24-3.57.65-7.14 2.68-10.71 2.03-3.57 4.67-6.73 7.92-9.49 3.25-2.76 6.67-4.8 10.25-6.11z"/></svg>
+              <span>macOS</span>
+            </button>
           </div>
 
           <div class="terminal-box" id="termBoxWin">
@@ -1170,7 +1275,13 @@
             🚀 EM DESENVOLVIMENTO • ROADMAP
           </div>
 
-          <h3>Servidor em Nuvem Dedicado</h3>
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 12px;">
+            <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(139, 92, 246, 0.18); border: 1px solid rgba(139, 92, 246, 0.4); display: flex; align-items: center; justify-content: center; color: #C4B5FD; box-shadow: 0 4px 14px rgba(139, 92, 246, 0.25); flex-shrink: 0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path><polyline points="13 11 11 15 14 15 12 19"></polyline></svg>
+            </div>
+            <h3 style="margin-bottom: 0;">Servidor em Nuvem Dedicado</h3>
+          </div>
+
           <p class="mode-summary">
             <strong>Sem computador ligado!</strong> Estamos criando nós de servidores em nuvem de alta disponibilidade 24/7. Você poderá programar de qualquer lugar do mundo diretamente pelo celular.
           </p>
@@ -1228,48 +1339,78 @@
 
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 17 10 11 4 5"></polyline><line x1="12" y1="19" x2="20" y2="19"></line></svg>
+          <div class="feature-icon-wrapper feature-icon-terminal">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect width="20" height="16" x="2" y="4" rx="3"></rect>
+              <path d="m8 10 3 2.5-3 2.5"></path>
+              <line x1="13" y1="15" x2="16" y2="15"></line>
+            </svg>
           </div>
           <h4>Terminal & Execução</h4>
           <p>Execute scripts, aprove comandos com um toque e acompanhe a saída de compilação ou testes em tempo real.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+          <div class="feature-icon-wrapper feature-icon-thinking">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 4.44-2.04Z"></path>
+              <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path>
+            </svg>
           </div>
           <h4>Thinking Visual</h4>
           <p>Veja os passos de raciocínio lógico que o modelo toma antes de tomar decisões ou editar arquivos no seu código.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          <div class="feature-icon-wrapper feature-icon-camera">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+              <path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+              <path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+              <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+              <rect x="7" y="7" width="3" height="3"></rect>
+              <rect x="14" y="7" width="3" height="3"></rect>
+              <rect x="7" y="14" width="3" height="3"></rect>
+              <path d="M14 14h.01"></path>
+              <path d="M17 14h.01"></path>
+              <path d="M14 17h3"></path>
+            </svg>
           </div>
           <h4>Pareamento por Câmera</h4>
           <p>Leitor de QR Code integrado no próprio aplicativo. Aponte para o terminal do computador e conecte em 2 segundos.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <div class="feature-icon-wrapper feature-icon-security">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
           </div>
           <h4>Higienizado & Seguro</h4>
           <p>Sem vazamento de IPs de rede local, caminhos confidenciais ou contas de terceiros. Instalação 100% limpa.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+          <div class="feature-icon-wrapper feature-icon-quota">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.34 19a10 10 0 1 1 17.32 0"></path>
+              <circle cx="12" cy="14" r="2"></circle>
+              <path d="m12 14 4-4"></path>
+            </svg>
           </div>
           <h4>Monitor de Quotas</h4>
           <p>Acompanhe o consumo e a disponibilidade de requisições de cada modelo (Flash, Pro, Lite) direto na interface.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon-wrapper">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <div class="feature-icon-wrapper feature-icon-diff">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <path d="m9 13-2 2 2 2"></path>
+              <path d="m15 13 2 2-2 2"></path>
+            </svg>
           </div>
           <h4>Editor & Diff Viewer</h4>
           <p>Visualize as alterações de arquivos propostas pela IA com destaque de sintaxe e aceite ou rejeite facilmente.</p>
@@ -1289,25 +1430,45 @@
 
       <div class="steps-grid">
         <div class="step-box">
-          <div class="step-counter">1</div>
+          <div class="step-top">
+            <div class="step-icon-badge">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </div>
+            <span class="step-num-pill">PASSO 01</span>
+          </div>
           <h5>Baixe o APK</h5>
-          <p>Toque no botão principal de download para obter o arquivo <code>AntigravityMobile-v1.4.0-build23.apk</code>.</p>
+          <p>Toque no botão principal de download para obter o arquivo <code>AntigravityMobile-v1.4.0-build24.apk</code>.</p>
         </div>
 
         <div class="step-box">
-          <div class="step-counter">2</div>
+          <div class="step-top">
+            <div class="step-icon-badge" style="background: rgba(245, 158, 11, 0.12); border-color: rgba(245, 158, 11, 0.3); color: #FBBF24;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+            <span class="step-num-pill">PASSO 02</span>
+          </div>
           <h5>Confirme o Download</h5>
           <p>Se o navegador exibir o aviso de segurança do Android, escolha <em>"Fazer download mesmo assim"</em>.</p>
         </div>
 
         <div class="step-box">
-          <div class="step-counter">3</div>
+          <div class="step-top">
+            <div class="step-icon-badge" style="background: rgba(16, 185, 129, 0.12); border-color: rgba(16, 185, 129, 0.3); color: #34D399;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line><path d="m9 10 2 2 4-4"></path></svg>
+            </div>
+            <span class="step-num-pill">PASSO 03</span>
+          </div>
           <h5>Instale no Celular</h5>
           <p>Toque na notificação de download concluído e clique em <em>Instalar</em>.</p>
         </div>
 
         <div class="step-box">
-          <div class="step-counter">4</div>
+          <div class="step-top">
+            <div class="step-icon-badge" style="background: rgba(168, 85, 247, 0.12); border-color: rgba(168, 85, 247, 0.3); color: #C084FC;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"></path></svg>
+            </div>
+            <span class="step-num-pill">PASSO 04</span>
+          </div>
           <h5>Inicie e Conecte</h5>
           <p>Abra o app, aponte a câmera para o QR Code gerado pelo <code>./start.sh</code> e pronto!</p>
         </div>
@@ -1324,8 +1485,13 @@
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Preciso ter um computador ligado para usar o aplicativo?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <div class="faq-q-left">
+              <div class="faq-icon-pill">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="3" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+              </div>
+              <span>Preciso ter um computador ligado para usar o aplicativo?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
           <div class="faq-answer">
             Hoje, no modo <strong>Servidor Local (Self-Hosted)</strong>, sim: você executa o script <code>./start.sh</code> no seu computador e pareia pelo QR Code. Porém, nosso <strong>Servidor em Nuvem Dedicado</strong> já está em desenvolvimento! Assim que for lançado, você poderá usar o Antigravity sem precisar de computador nenhum.
@@ -1334,8 +1500,13 @@
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Como funciona a segurança e privacidade dos meus dados?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <div class="faq-q-left">
+              <div class="faq-icon-pill" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.25); color: #34D399;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <span>Como funciona a segurança e privacidade dos meus dados?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
           <div class="faq-answer">
             O aplicativo passa por higienização completa. Nenhuma credencial privada, conta Google ou caminho interno de arquivo é compartilhado. O login requer verificação de e-mail e a conexão utiliza WebSocket autenticado com tokens seguros.
@@ -1344,8 +1515,13 @@
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Consigo usar pela internet móvel (4G/5G) fora de casa?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <div class="faq-q-left">
+              <div class="faq-icon-pill" style="background: rgba(168, 85, 247, 0.1); border-color: rgba(168, 85, 247, 0.25); color: #C084FC;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
+              </div>
+              <span>Consigo usar pela internet móvel (4G/5G) fora de casa?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
           <div class="faq-answer">
             Sim! Com o modo Local você pode utilizar túneis reversos seguros (como Cloudflare Tunnel ou Ngrok), e quando o Servidor em Nuvem Dedicado estiver disponível, a conexão remota será nativa e automática de qualquer lugar.
@@ -1354,8 +1530,13 @@
 
         <div class="faq-item">
           <div class="faq-question" onclick="toggleFaq(this)">
-            <span>Haverá versão na Google Play Store ou versão para iOS?</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            <div class="faq-q-left">
+              <div class="faq-icon-pill" style="background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.25); color: #FBBF24;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+              </div>
+              <span>Haverá versão na Google Play Store ou versão para iOS?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
           <div class="faq-answer">
             Sim! O aplicativo foi desenvolvido com Flutter multi-plataforma. Estamos preparando o processo de submissão para a Google Play Store e também os builds para dispositivos Apple iOS.
@@ -1370,10 +1551,22 @@
   <footer>
     <div class="container footer-content">
       <div class="footer-links">
-        <a href="https://github.com/WebuildSoft/Antigravity-mobile" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/WebuildSoft/antigravity-mobile-releases" target="_blank" rel="noopener">Releases</a>
-        <a href="#modos">Servidores</a>
-        <a href="#faq">FAQ</a>
+        <a href="https://github.com/WebuildSoft/Antigravity-mobile" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          GitHub
+        </a>
+        <a href="https://github.com/WebuildSoft/antigravity-mobile-releases" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+          Releases
+        </a>
+        <a href="#modos" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"></rect><rect width="20" height="8" x="2" y="14" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          Servidores
+        </a>
+        <a href="#faq" style="display: inline-flex; align-items: center; gap: 6px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+          FAQ
+        </a>
       </div>
       <p id="footerCopy">Antigravity Mobile • Desenvolvido por Nilson • Licença Open Source 2026</p>
     </div>
