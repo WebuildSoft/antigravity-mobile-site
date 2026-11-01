@@ -600,6 +600,30 @@
       color: #4ADE80;
       box-shadow: 0 8px 24px rgba(34, 197, 94, 0.2);
     }
+    .feature-icon-chat {
+      background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.25) 0%, rgba(59, 130, 246, 0.08) 100%);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      color: #818CF8;
+      box-shadow: 0 8px 24px rgba(99, 102, 241, 0.2);
+    }
+    .feature-icon-folder {
+      background: radial-gradient(circle at 30% 30%, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.08) 100%);
+      border: 1px solid rgba(245, 158, 11, 0.35);
+      color: #FBBF24;
+      box-shadow: 0 8px 24px rgba(245, 158, 11, 0.2);
+    }
+    .feature-icon-history {
+      background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.25) 0%, rgba(124, 58, 237, 0.08) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      color: #A78BFA;
+      box-shadow: 0 8px 24px rgba(139, 92, 246, 0.2);
+    }
+    .feature-icon-updater {
+      background: radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.25) 0%, rgba(219, 39, 119, 0.08) 100%);
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      color: #F472B6;
+      box-shadow: 0 8px 24px rgba(236, 72, 153, 0.2);
+    }
     .feature-card h4 {
       font-size: 17px;
       font-weight: 700;
@@ -1088,6 +1112,19 @@
 
       <div class="features-grid">
         <div class="feature-card">
+          <div class="feature-icon-wrapper feature-icon-chat">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+              <circle cx="12" cy="11" r="1"></circle>
+              <circle cx="8" cy="11" r="1"></circle>
+              <circle cx="16" cy="11" r="1"></circle>
+            </svg>
+          </div>
+          <h4>Chat Inteligente & Fotos</h4>
+          <p>Streaming em tempo real com rolagem inteligente que não trava sua leitura, botão de retorno rápido e envio de fotos da câmera ou galeria.</p>
+        </div>
+
+        <div class="feature-card">
           <div class="feature-icon-wrapper feature-icon-terminal">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <rect width="20" height="16" x="2" y="4" rx="3"></rect>
@@ -1095,8 +1132,8 @@
               <line x1="13" y1="15" x2="16" y2="15"></line>
             </svg>
           </div>
-          <h4>Terminal & Execução</h4>
-          <p>Execute scripts, aprove comandos com um toque e acompanhe a saída de compilação ou testes em tempo real.</p>
+          <h4>Terminal & Ferramentas</h4>
+          <p>Acompanhe comandos de terminal, execução de scripts Bash/PowerShell e aprove ferramentas de desenvolvimento com um toque.</p>
         </div>
 
         <div class="feature-card">
@@ -1106,8 +1143,19 @@
               <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-4.44-2.04Z"></path>
             </svg>
           </div>
-          <h4>Thinking Visual</h4>
-          <p>Veja os passos de raciocínio lógico que o modelo toma antes de tomar decisões ou editar arquivos no seu código.</p>
+          <h4>Raciocínio (Thinking Visual)</h4>
+          <p>Inspecione o Chain of Thought do agente com cards retráteis de raciocínio antes de cada edição de código ou decisão.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper feature-icon-folder">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z"></path>
+              <polyline points="9 13 12 16 15 13"></polyline>
+            </svg>
+          </div>
+          <h4>Explorador do Workspace</h4>
+          <p>Navegue na árvore completa de pastas e arquivos do computador pelo celular, com visualização de código e syntax highlighting.</p>
         </div>
 
         <div class="feature-card">
@@ -1125,19 +1173,8 @@
               <path d="M14 17h3"></path>
             </svg>
           </div>
-          <h4>Pareamento por Câmera</h4>
-          <p>Leitor de QR Code integrado no próprio aplicativo. Aponte para o terminal do computador e conecte em 2 segundos.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon-wrapper feature-icon-security">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-              <polyline points="9 12 11 14 15 10"></polyline>
-            </svg>
-          </div>
-          <h4>Higienizado & Seguro</h4>
-          <p>Sem vazamento de IPs de rede local, caminhos confidenciais ou contas de terceiros. Instalação 100% limpa.</p>
+          <h4>Pareamento por QR Code</h4>
+          <p>Leitor integrado na câmera do app. Aponte para o terminal do computador e conecte-se instantaneamente na rede local ou via túnel remoto.</p>
         </div>
 
         <div class="feature-card">
@@ -1148,21 +1185,31 @@
               <path d="m12 14 4-4"></path>
             </svg>
           </div>
-          <h4>Monitor de Quotas</h4>
-          <p>Acompanhe o consumo e a disponibilidade de requisições de cada modelo (Flash, Pro, Lite) direto na interface.</p>
+          <h4>Contas Google & Quotas</h4>
+          <p>Monitore o consumo dos modelos (Flash, Pro, Lite) e alterne entre as contas Google configuradas no Antigravity CLI do seu PC.</p>
         </div>
 
         <div class="feature-card">
-          <div class="feature-icon-wrapper feature-icon-diff">
+          <div class="feature-icon-wrapper feature-icon-history">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
-              <polyline points="14 2 14 8 20 8"></polyline>
-              <path d="m9 13-2 2 2 2"></path>
-              <path d="m15 13 2 2-2 2"></path>
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
           </div>
-          <h4>Editor & Diff Viewer</h4>
-          <p>Visualize as alterações de arquivos propostas pela IA com destaque de sintaxe e aceite ou rejeite facilmente.</p>
+          <h4>Histórico de Conversas</h4>
+          <p>Sessões persistidas no banco local SQLite. Alterne entre conversas anteriores ou inicie novas tarefas sem perder o contexto.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon-wrapper feature-icon-updater">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+          </div>
+          <h4>Atualização Direta no App</h4>
+          <p>O aplicativo verifica novos releases na nuvem e instala atualizações automaticamente com um toque, sem precisar do navegador.</p>
         </div>
       </div>
     </section>
@@ -1218,8 +1265,8 @@
             </div>
             <span class="step-num-pill">PASSO 04</span>
           </div>
-          <h5>Inicie e Conecte</h5>
-          <p>Abra o app, aponte a câmera para o QR Code gerado pelo <code>./start.sh</code> e pronto!</p>
+          <h5>Acesse e Conecte</h5>
+          <p>Abra o app, faça login (ou crie sua conta) e aponte a câmera para o QR Code gerado no terminal do PC (<code>start.bat</code> ou <code>./start.sh</code>).</p>
         </div>
       </div>
     </section>
@@ -1274,6 +1321,51 @@
           </div>
           <div class="faq-answer">
             Sim! Com o modo Local você pode utilizar túneis reversos seguros (como Cloudflare Tunnel ou Ngrok), e quando o Servidor em Nuvem Dedicado estiver disponível, a conexão remota será nativa e automática de qualquer lugar.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <div class="faq-icon-pill" style="background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.25); color: #38BDF8;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              </div>
+              <span>Preciso ter a minha conta do Antigravity configurada no computador?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            Sim. O servidor local conecta-se ao <strong>Antigravity CLI (<code>agy</code>)</strong> instalado na sua máquina e utiliza a conta Google já associada no seu computador para executar os modelos de IA e consumir suas cotas.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <div class="faq-icon-pill" style="background: rgba(239, 68, 68, 0.1); border-color: rgba(239, 68, 68, 0.25); color: #F87171;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              </div>
+              <span>O que fazer se o Windows Defender ou antivírus alertar sobre o servidor?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            Como o servidor é de código aberto e não possui um certificado comercial pago da Microsoft, o SmartScreen pode exibir um aviso preventivo. Basta clicar em <em>"Mais informações"</em> e depois em <em>"Executar assim mesmo"</em>. No PowerShell, você também pode executar diretamente <code>.\start.ps1</code>.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <div class="faq-q-left">
+              <div class="faq-icon-pill" style="background: rgba(234, 179, 8, 0.1); border-color: rgba(234, 179, 8, 0.25); color: #FACC15;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+              </div>
+              <span>O que fazer se o firewall do computador bloquear a conexão do celular?</span>
+            </div>
+            <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-answer">
+            Se o Firewall do Windows bloquear a porta local <code>4040</code>, abra o PowerShell como Administrador e execute: <code>New-NetFirewallRule -DisplayName "Antigravity Server" -Direction Inbound -LocalPort 4040 -Protocol TCP -Action Allow</code>. Alternativamente, você pode escanear o QR Code do Túnel Cloudflare gerado no terminal.
           </div>
         </div>
 
