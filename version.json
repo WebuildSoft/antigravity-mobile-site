@@ -1,7 +1,7 @@
 {
-  "version": "1.4.0",
-  "build": 25,
-  "releasedAt": "2026-11-01T09:24:00Z",
-  "changelog": "Rolagem inteligente no chat e suporte universal de workspace",
-  "downloadUrl": "https://github.com/WebuildSoft/antigravity-mobile-releases/releases/download/v1.4.0/AntigravityMobile-v1.4.0-build25.apk"
+  "version": "1.4.1",
+  "build": 50,
+  "releasedAt": "2026-11-04T02:37:29Z",
+  "changelog": "Correção no campo de texto: sincronização do áudio e máquina de escrever ao apagar/editar manualmente",
+  "downloadUrl": "https://github.com/WebuildSoft/antigravity-mobile-releases/releases/latest/download/AntigravityMobile-v1.4.1-build50.apk"
 }
